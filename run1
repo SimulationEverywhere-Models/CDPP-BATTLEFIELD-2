@@ -1,0 +1,43 @@
+#!/bin/sh
+#
+SIM=cbs2_1
+
+SIMU_DIR=/home/erik/cd++
+
+SIMU=$SIMU_DIR/cd++
+DRAWLOG=$SIMU_DIR/drawlog
+#LOGBUFFER=$SIMU_DIR/logbuffer
+
+
+MA=$SIM.ma
+#EV=$SIM.ev
+LOG=./logs1/$SIM.log
+DRW=$SIM.drw
+#OUT=$SIM.out
+#LOG_FULL=$LOG.full
+TIME=00:00:05:000
+STEP=00:00:00:100
+
+rm -f $LOG* $DRW $OUT
+
+SIMU_ARGS="-m$MA -p$SIM.parser -v$SIM.eval"
+[ -n "$TIME" ]  &&  SIMU_ARGS="$SIMU_ARGS -t$TIME"
+[ -n "$EV" ]    &&  SIMU_ARGS="$SIMU_ARGS -e$EV"
+[ -n "$LOG" ]   &&  SIMU_ARGS="$SIMU_ARGS -l$LOG"
+[ -n "$OUT" ]   &&  SIMU_ARGS="$SIMU_ARGS -o$OUT"
+
+if [ -z "$DEBUGGER" ]; then
+
+    time $SIMU $SIMU_ARGS
+
+else
+    $SIMU --pargs $SIMU_ARGS
+fi
+
+echo Running drawlog
+$DRAWLOG -m$MA -c$SIM -l$LOG -i$STEP -0 -w2 -p0 -nfs > $DRW
+
+vi $DRW
+#echo Collapsing log files
+#cat $LOG?* | $LOGBUFFER > $LOG_FULL
+

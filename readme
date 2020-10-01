@@ -1,0 +1,36 @@
+
+
+**Important*************************************************************
+
+The runtime script necessitates that the model's main component name is the same as the file
+names being used. For example, cbs2_3.ma has a main component description of [cbs2_3].
+
+************************************************************************
+
+README		This file.
+
+run1		Script used to execute the first Scenario of the cbs2 model,
+		including cbs2_1.ma, cbs2_1.val, cbs2_1.var. It outputs to
+		cbs2_1.drw and the log1 series of log files.
+
+		Scenario 1 is the "Compete for Same Objective" Scenario.
+
+
+run2		Script used to execute the first Scenario of the cbs2 model,
+		including cbs2_2.ma, cbs2_2.val, cbs2_2.var. It outputs to
+		cbs2_2.drw and the log2 series of log files.
+
+		Scenario 2 is the "Ganging up on the Little Guy" Scenario.
+
+run3		Script used to execute the first Scenario of the cbs2 model,
+		including cbs2_3.ma, cbs2_3.val, cbs2_3.var. It outputs to
+		cbs2_3.drw and the log3 series of log files.
+
+		Scenario 3 is the "Battle Royale" Scenario.
+
+
+cbs2.report.pdf	Paper describing the CBS2 model in its entirety.
+
+cbs2.form.pdf	CD++ Registration form for the CBS2 Model.
+
+
